@@ -26,10 +26,10 @@ if not exist "%main_folder%" (
 	goto eof
 )
 echo "Knock, knock." > "%txt_file%"
-echo "(Who’s there?)" > "%txt_file%"
-echo "Recursion." > "%txt_file%"
-echo "(Recursion who?)" > "%txt_file%"
-echo "Knock Knock…" > "%txt_file%"
+echo "(Who’s there?)" >> "%txt_file%"
+echo "Recursion." >> "%txt_file%"
+echo "(Recursion who?)" >> "%txt_file%"
+echo "Knock Knock…" >> "%txt_file%"
 
 copy "%txt_file%" "%main_folder%"
 del "%txt_file%"
