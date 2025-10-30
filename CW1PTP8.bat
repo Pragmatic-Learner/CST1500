@@ -21,7 +21,7 @@ type nul > "%txt_file%"
 if not exist "%main_folder%" (
 	echo "ERROR!!  %main_folder% was not created!!"
 	goto eof
-) else if not exist "%main_folder%\%txt_file%" (
+) else if not exist "%txt_file%" (
 	echo "ERROR!!  %txt_file% was not created!!"
 	goto eof
 )

@@ -1,7 +1,7 @@
 @echo off
 
-set main_folder = "The_bag"
-set /p path = "Provide a path : "
+set main_folder="The_bag"
+set /p path="Provide a path : "
 
 if exist "%path%" (
 	if exist "%path%\%main_folder%" (
@@ -23,7 +23,7 @@ for /l %%x in (1,1,3) do (
 	if not exist "Folder%%x" (
 		echo "ERROR!!  Folder%%x was not created!!"
 		goto eof
-	) else if not exist Folder%%x\File%%x.txt (
+	) else if not exist "Folder%%x\File%%x.txt" (
 		echo "ERROR!!  File%%x was not created!!"
 		goto eof
 	)
