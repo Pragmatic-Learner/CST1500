@@ -2,11 +2,15 @@
 
 # First parameter is a  path.  Create path if it does not exist
 path="${1}"
+# ## Replace ~ for $HOME
+if [[ "${path:0:2}" == "~/" ]]
+then
+	path="${HOME}${path}"
+fi
 
-[[ "${path:1:1}" == "~" ]] && path="${HOME}${path:1}"
 if [[ ! -d "${path}" ]]
 then
-	mkdir "${path}"
+	mkdir -p "${path}"
 	echo "Path, ${path}, was missing so it was created"
 fi
 

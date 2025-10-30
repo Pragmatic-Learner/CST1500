@@ -1,4 +1,5 @@
 #!/bin/bash
+RunProgram="WSUP"
 until [ -d "${dirPath}" ] || [ "${RunProgram}" == "Exit" ]
 do
 
@@ -21,24 +22,15 @@ do
 	fi
 	
 	# Create subdirectories a, b, and c, and exit if any returns error
-	mkdir "${dirPath}/a"
-	if [ $? -ne 0 ]
-	then
-		echo "Error: Failed to create directory ${dirPath}/a"
-		exit 1
-	fi
-	mkdir "${dirPath}/b"
+	for folder in a b c
+	do
+		mkdir "${dirPath}/${folder}"
 		if [ $? -ne 0 ]
-	then
-		echo "Error: Failed to create directory ${dirPath}/a"
-		exit 1
-	fi
-	mkdir "${dirPath}/c"
-		if [ $? -ne 0 ]
-	then
-		echo "Error: Failed to create directory ${dirPath}/a"
-		exit 1
-	fi
+		then
+			echo "Error: Failed to create directory ${dirPath}/${folder}\n${?}"
+			exit 1
+		fi
+	done
 
 	# Get userName and write to file inside dirPath/a/userName.txt
 	read -p "Enter your MDX username: " userName

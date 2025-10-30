@@ -35,7 +35,7 @@ int main() {
 	if (*ptr2 != 0.0)
 		printf("\nQuotient   = %.2f", quotient);
 	else {
-		printf("\nQuotient   = UnDefined!");
+		printf("\nQuotient   = Undefined!");
 		printf("\nDenominator cannot be 0");
 	}
 

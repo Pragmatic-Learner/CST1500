@@ -1,13 +1,7 @@
 #include <stdio.h>
 
 /*Enum to label int literals, for ease of writing and understand of ranks*/
-enum classificationBorder{
-	FAIL = 0, /*FAIL IS NEVER USED, but I am leaving it here for the sake of reference*/
-	THIRD = 40,
-	LOWER_SECOND = 50,
-	UPPER_SECOND = 60,
-	FIRST = 70
-};
+enum classificationBorder{FAIL = 0, THIRD = 40, LOWER_SECOND = 50, UPPER_SECOND = 60, FIRST = 70};
 
 int main() {
 	/*Lower Bound to score enterable and Upper Bound*/
