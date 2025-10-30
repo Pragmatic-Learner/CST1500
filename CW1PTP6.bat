@@ -1,26 +1,34 @@
 @echo off
-:: TASK :
-::	1. Create folder the bag
-::	2. Create 3 subfolders inside the bag
-::	3. Create 1 text file inside each of the 3 subfolder
-::	4. Ouput message
 
-:: TASK 1: Create folder The_BAG
-mkdir "The_Bag"
+set MAX_FOLDERS=3
+set main_folder="The_bag"
 
-:: TASK 2: Create 3 subfolders inside The_Bag
-mkdir "The_Bag\Folder1"
-mkdir "The_Bag\Folder2"
-mkdir "The_Bag\Folder3"
+set /p path="Provide a path : "
 
-:: TASK 3: Create 3 empty text files inside subfolders
-type nul > "The_Bag\Folder1\File1.txt"
-type nul > "The_Bag\Folder2\File2.txt"
-type nul > "The_Bag\Folder3\File3.txt"
+if exist "%path%" (
+	if exist "%path%\%main_folder%" (
+		echo "Path does not exist, please enter new, exisiting path..."
+		goto eof
+	)
+	mkdir "%path%\%main_folder%"
+) else (
+	echo "Path does not exist, please enter new, exisiting path..."
+	goto eof
+)
 
-:: TASK 4: Output "The 6 items are in The Bag!”
+cd "%path%/%main_folder%"
+
+for /l %%x in (1,1,%MAX_FOLDERS%) do (
+	mkdir "Folder%%x"
+	type nul > "Folder%%x\File%%x.txt"
+	if not exist "Folder%%x\File%%x.txt" (
+		echo "Path does not exist, please enter new, exisiting path..."
+		goto eof
+	)
+)
 
 echo “The 6 items are in The Bag!”
 
-pause :: allow user to see ouput message
+:eof
+pause
 
