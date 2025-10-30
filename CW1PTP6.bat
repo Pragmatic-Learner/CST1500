@@ -1,28 +1,31 @@
 @echo off
 
-set MAX_FOLDERS=3
 set main_folder="The_bag"
 
 set /p path="Provide a path : "
 
 if exist "%path%" (
 	if exist "%path%\%main_folder%" (
-		echo "Path does not exist, please enter new, exisiting path..."
+		echo "ERROR!!  %path%\%main_folder% already exists!!"
 		goto eof
 	)
-	mkdir "%path%\%main_folder%"
+	cd "%path%"
 ) else (
-	echo "Path does not exist, please enter new, exisiting path..."
+	echo "ERROR!!  Path does not exist, please enter new, exisiting path..."
 	goto eof
 )
 
-cd "%path%/%main_folder%"
+mkdir "%main_folder%"
+cd "%main_folder%"
 
-for /l %%x in (1,1,%MAX_FOLDERS%) do (
+for /l %%x in (1,1,3) do (
 	mkdir "Folder%%x"
 	type nul > "Folder%%x\File%%x.txt"
-	if not exist "Folder%%x\File%%x.txt" (
-		echo "Path does not exist, please enter new, exisiting path..."
+	if not exist "Folder%%x" (
+		echo "ERROR!!  Folder%%x was not created!!"
+		goto eof
+	) else if not exist "Folder%%x\File%%x.txt" (
+		echo "ERROR!!  File%%x was not created!!"
 		goto eof
 	)
 )

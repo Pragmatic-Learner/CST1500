@@ -1,31 +1,38 @@
 @echo off
 
 set main_folder="myBatchScript"
-set txtFile="results.txt"
+set txt_file="results.txt"
 
 set /p path="Enter path for creating files : "
 
 if exist "%path%" (
 	if exist "%path%\%main_folder%" (
-		echo "Path does not exist, please enter new, exisiting path..."
+		echo "ERROR!!  %path%\%main_folder% already exists!!"
 		goto eof
 	)
-	mkdir "%path%\%main_folder%"
+	cd "%path%"
 ) else (
 	echo "Path does not exist, please enter new, exisiting path..."
 	goto eof
 )
 
-cd "%path%"
-type nul > "%txtFile%"
-echo "Knock, knock." > "%txtFile%"
-echo "(Who’s there?)" > "%txtFile%"
-echo "Recursion." > "%txtFile%"
-echo "(Recursion who?)" > "%txtFile%"
-echo "Knock Knock…" > "%txtFile%"
+mkdir "%main_folder%"
+type nul > "%txt_file%"
+if not exist "%main_folder%" (
+	echo "ERROR!!  %main_folder% was not created!!"
+	goto eof
+) else if not exist "%main_folder%\%txt_file%" (
+	echo "ERROR!!  %txt_file% was not created!!"
+	goto eof
+)
+echo "Knock, knock." > "%txt_file%"
+echo "(Who’s there?)" > "%txt_file%"
+echo "Recursion." > "%txt_file%"
+echo "(Recursion who?)" > "%txt_file%"
+echo "Knock Knock…" > "%txt_file%"
 
-copy "%txtFile%" "%mainFolder%"
-del "%txtFiles%"
+copy "%txt_file%" "%main_folder%"
+del "%txt_file%"
 
 echo "Task Complete!"
 
