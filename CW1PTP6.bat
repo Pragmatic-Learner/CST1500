@@ -1,7 +1,6 @@
 @echo off
 
 set main_folder="The_bag"
-set max_subfolder=3
 set /p path="Provide a path : "
 
 :: Check if %path% exists
@@ -17,12 +16,12 @@ if exist "%path%\%main_folder%" (
 )
 
 :: Move into %path%, create folder %main_folder%, and move into %main_folder%
-cd %path%
+cd "%path%"
 mkdir "%main_folder%"
 cd "%main_folder%"
 
 :: Create folderX and inside folderX create fileX for X times
-for /l %%x in (1,1,max_subfolder) do (
+for /l %%x in (1,1,3) do (
 	mkdir "Folder%%x"
 	type nul > "Folder%%x\File%%x.txt"
 

@@ -22,7 +22,7 @@ int main(){
 	if (attempt != 0)
 		printf("\n\nSuccess\nWell done %s, you got the password right in %d attempt(s)!\n", userName, (MAX_ATTEMPTS - attempt + 1));
 	else
-		printf("\n\nFailure\nBad luck %s, you took %d attempts, you are locked out\n", userName, attempt);
+		printf("\n\nFailure\nBad luck %s, you took %d attempts, you are locked out\n", userName, (MAX_ATTEMPTS - attempt));
 	return 0;
 }
 

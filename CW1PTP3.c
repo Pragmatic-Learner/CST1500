@@ -18,7 +18,7 @@ int main() {
 	and that no other (wrong) data is input*/
 	char endInput;
 
-	printf("Keep entering exam scores when prompted.  To exit, simple write -1 in for the exam scoren");
+	printf("Keep entering exam scores when prompted.  To exit, simply write -1 for the exam score");
 	
 	/*Loop to repeat input examScore, until -1 is input*/
 	do {

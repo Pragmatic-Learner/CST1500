@@ -8,9 +8,9 @@ int main() {
 	double inputX, inputY; /*get two values X and Y*/
 	double resultZ[4]; /*Store result, with each index being associated with enum OPERATION*/
 
-	printf("Do understand, this is a simple program.  Any out of bounds, or incorrect data will like give unwanted results and can break the program");
+	printf("Do understand, this is a simple program.  Any out of bounds, or incorrect data will likely give unwanted results and can break the program.  Also do not include spaces in your username");
 	printf("\nEnter your USERNAME(max length: 20 characters): ");
-	fgets(studentName, sizeof(studentName), stdin);
+	scanf("%s", studentName);
 
 	/*Prompts to guide user*/
 	printf("\n\nYou will be prompted to enter 2 value, {X} and {Y}.");
@@ -47,9 +47,9 @@ int main() {
 	if (inputY == 0)
 		printf("\n%s has entered %.2lf and %.2lf. %.2lf / %.2lf is UNDEFINED!!", studentName, inputX, inputY, inputX, inputY);
 	else
-		printf("\n%s has entered %.2lf and %.2lf. %.2lf / %.2lf equals %.2lf", studentName, inputX, inputY, inputX, inputY, resultZ[Quotient])
+		printf("\n%s has entered %.2lf and %.2lf. %.2lf / %.2lf equals %.2lf", studentName, inputX, inputY, inputX, inputY, resultZ[Quotient]);
 
-	printf("\n%s has entered %.2lf and %.2lf. %.2lf * %.2lf equals %.2lf", studentName, inputX, inputY, inputX, inputY, resultZ[Product])
+	printf("\n%s has entered %.2lf and %.2lf. %.2lf * %.2lf equals %.2lf", studentName, inputX, inputY, inputX, inputY, resultZ[Product]);
 	printf("\n%s has entered %.2lf and %.2lf. %.2lf + %.2lf equals %.2lf", studentName, inputX, inputY, inputX, inputY, resultZ[Sum]);
 	printf("\n%s has entered %.2lf and %.2lf. %.2lf - %.2lf equals %.2lf\n", studentName, inputX, inputY, inputX, inputY, resultZ[Difference]);
 
